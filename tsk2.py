@@ -1,8 +1,8 @@
 from typing import List
 
 def play(words: List[str]) -> List[int]:
-    seen_words = set()  # Множество для хранения уже произнесенных слов
-    error_indices = []  # Список для хранения индексов слов с ошибками
+    seen_words = set()  
+    error_indices = [] 
     
     if not words:
         return error_indices
@@ -13,12 +13,12 @@ def play(words: List[str]) -> List[int]:
     for i in range(1, len(words)):
         word = words[i]
         
-        # Проверка на повторение слова
+       
         if word in seen_words:
-            error_indices.append(i + 1)  # Индексы начинаются с 1
+            error_indices.append(i + 1) 
             continue
         
-        # Проверка на правильность начала слова
+        
         if word[0] != last_valid_word[-1]:
             error_indices.append(i + 1)
             
@@ -29,6 +29,6 @@ def play(words: List[str]) -> List[int]:
     
     return error_indices
 
-# Пример использования
+
 words =["sunflower", "river", "river", "rabbit", "tree", "eagle", "tree"]
-print(play(words))  # Вывод: [3, 4, 6]
+print(play(words))  
